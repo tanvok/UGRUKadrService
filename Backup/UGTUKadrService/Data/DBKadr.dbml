@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Kadr" Class="DBKadrDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=ugtudb.ugtu.net;Initial Catalog=Kadr;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="KadrConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Department" Member="Departments">
+    <Type Name="Department">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DepartmentName" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentSmallName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="idDepartmentType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idManagerDepartment" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="KadrID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dateCreate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dateExit" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="idManagerPlanStaff" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idBeginPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idEndPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SeverKoeff" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RayonKoeff" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Department_Department" Member="Departments" ThisKey="id" OtherKey="idManagerDepartment" Type="Department" />
+      <Association Name="Department_PlanStaff" Member="PlanStaffs" ThisKey="id" OtherKey="idDepartment" Type="PlanStaff" />
+      <Association Name="Department_Department" Member="Department1" ThisKey="idManagerDepartment" OtherKey="id" Type="Department" IsForeignKey="true" />
+      <Association Name="PlanStaff_Department" Member="PlanStaff" ThisKey="idManagerPlanStaff" OtherKey="id" Type="PlanStaff" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Post" Member="Posts">
+    <Type Name="Post">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PostName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="PostShortName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ManagerBit" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="idGlobalPrikaz" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idPKCategory" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idCategory" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Post_PlanStaff" Member="PlanStaffs" ThisKey="id" OtherKey="idPost" Type="PlanStaff" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FactStaffReplacement" Member="FactStaffReplacements">
+    <Type Name="FactStaffReplacement">
+      <Column Name="idFactStaff" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idReplacedFactStaff" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idReplacementReason" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="FactStaff_FactStaffReplacement" Member="FactStaff" ThisKey="idReplacedFactStaff" OtherKey="id" Type="FactStaff" IsForeignKey="true" />
+      <Association Name="FactStaff_FactStaffReplacement1" Member="FactStaff1" ThisKey="idFactStaff" OtherKey="id" Type="FactStaff" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employee" Member="Employees">
+    <Type Name="Employee">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="itab_n" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Otch" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BirthDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BirthPlace" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="SexBit" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="idGrazd" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idSemPol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SeverKoeff" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RayonKoeff" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GUID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EmployeeLogin" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Association Name="Employee_FactStaff" Member="FactStaffs" ThisKey="id" OtherKey="idEmployee" Type="FactStaff" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PlanStaff" Member="PlanStaffs">
+    <Type Name="PlanStaff">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idDepartment" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idPost" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idEndPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="PlanStaff_Department" Member="Departments" ThisKey="id" OtherKey="idManagerPlanStaff" Type="Department" />
+      <Association Name="PlanStaff_FactStaff" Member="FactStaffs" ThisKey="id" OtherKey="idPlanStaff" Type="FactStaff" />
+      <Association Name="Department_PlanStaff" Member="Department" ThisKey="idDepartment" OtherKey="id" Type="Department" IsForeignKey="true" />
+      <Association Name="Post_PlanStaff" Member="Post" ThisKey="idPost" OtherKey="id" Type="Post" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FactStaff" Member="FactStaffs">
+    <Type Name="FactStaff">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idPlanStaff" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idEmployee" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idEndPrikaz" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsReplacement" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="idTimeSheetSheduleType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="FactStaff_FactStaffReplacement" Member="FactStaffReplacements" ThisKey="id" OtherKey="idReplacedFactStaff" Type="FactStaffReplacement" />
+      <Association Name="FactStaff_FactStaffReplacement1" Member="FactStaffReplacement" ThisKey="id" OtherKey="idFactStaff" Type="FactStaffReplacement" Cardinality="One" />
+      <Association Name="Employee_FactStaff" Member="Employee" ThisKey="idEmployee" OtherKey="id" Type="Employee" IsForeignKey="true" />
+      <Association Name="PlanStaff_FactStaff" Member="PlanStaff" ThisKey="idPlanStaff" OtherKey="id" Type="PlanStaff" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.GetPlanStaffByPeriod" Method="GetPlanStaffByPeriod" IsComposable="true">
+    <Parameter Name="PeriodBegin" Parameter="periodBegin" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="PeriodEnd" Parameter="periodEnd" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="GetPlanStaffByPeriodResult">
+      <Column Name="idPlanStaff" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StaffCount" Type="System.Decimal" DbType="Decimal(4,2)" CanBeNull="true" />
+      <Column Name="idCategory" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idDepartment" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idPost" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idFinancingSource" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SeverKoeff" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RayonKoeff" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetSubDepartments" Method="GetSubDepartments" IsComposable="true">
+    <Parameter Name="idManagerDepartment" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetSubDepartmentsResult">
+      <Column Name="idDepartment" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idManagerDepartment" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsMain" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetFactStaffByPeriod" Method="GetFactStaffByPeriod" IsComposable="true">
+    <Parameter Name="PeriodBegin" Parameter="periodBegin" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="PeriodEnd" Parameter="periodEnd" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="GetFactStaffByPeriodResult">
+      <Column Name="idFactStaff" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idPlanStaff" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idEmployee" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idTypeWork" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StaffCount" Type="System.Decimal" DbType="Decimal(4,2)" CanBeNull="true" />
+      <Column Name="IsReplacement" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DateBegin" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetDepartmentStaff" Method="GetDepartmentStaff" IsComposable="true">
+    <Parameter Name="idDepartment" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PeriodBegin" Parameter="periodBegin" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="PeriodEnd" Parameter="periodEnd" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="WithSubDeps" Parameter="withSubDeps" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="GetDepartmentStaffResult">
+      <Column Name="PostName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="PKCategoryName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="CategoryName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FinancingSourceName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="factStaffCount" Type="System.Decimal" DbType="Decimal(6,2)" CanBeNull="true" />
+      <Column Name="EmplName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="TypeWorkName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="DepartmentName" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="PeriodBegin" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PeriodEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="StaffCountWithoutReplacement" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="idPlanStaff" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EmplFullName" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="EmplSid" Type="System.Data.Linq.Binary" DbType="VarBinary(85)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="idEmployee" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idPost" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ManagerBit" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="idFactStaff" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EmployeeLogin" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

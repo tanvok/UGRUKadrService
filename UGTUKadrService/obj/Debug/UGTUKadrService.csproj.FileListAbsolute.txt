@@ -1,0 +1,15 @@
+C:\Users\tvokueva\Desktop\UGTUKadrService\UGTUKadrService\bin\UGTUKadrService.dll
+C:\Users\tvokueva\Desktop\UGTUKadrService\UGTUKadrService\bin\UGTUKadrService.pdb
+C:\Users\tvokueva\Desktop\UGTUKadrService\UGTUKadrService\obj\Debug\UGTUKadrService.dll
+C:\Users\tvokueva\Desktop\UGTUKadrService\UGTUKadrService\obj\Debug\UGTUKadrService.pdb
+C:\Users\tvokueva\Desktop\UGTUKadrService\UGTUKadrService\obj\Debug\UGTUKadrService.csprojResolveAssemblyReference.cache
+D:\tanvok\работа\main Projects\UGTUKadrService\UGTUKadrService\bin\UGTUKadrService.dll
+D:\tanvok\работа\main Projects\UGTUKadrService\UGTUKadrService\bin\UGTUKadrService.pdb
+D:\tanvok\работа\main Projects\UGTUKadrService\UGTUKadrService\obj\Debug\UGTUKadrService.csprojResolveAssemblyReference.cache
+D:\tanvok\работа\main Projects\UGTUKadrService\UGTUKadrService\obj\Debug\UGTUKadrService.dll
+D:\tanvok\работа\main Projects\UGTUKadrService\UGTUKadrService\obj\Debug\UGTUKadrService.pdb
+G:\tanvok\Основные проекты\UGTUKadrService\UGTUKadrService\obj\Debug\UGTUKadrService.csprojResolveAssemblyReference.cache
+G:\tanvok\Основные проекты\UGTUKadrService\UGTUKadrService\obj\Debug\UGTUKadrService.dll
+G:\tanvok\Основные проекты\UGTUKadrService\UGTUKadrService\bin\UGTUKadrService.dll
+G:\tanvok\Основные проекты\UGTUKadrService\UGTUKadrService\bin\UGTUKadrService.pdb
+G:\tanvok\Основные проекты\UGTUKadrService\UGTUKadrService\obj\Debug\UGTUKadrService.pdb

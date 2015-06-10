@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="KadrService.asmx.cs" Class="UGTUKadrService.KadrService" %>

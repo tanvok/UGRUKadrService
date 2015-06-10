@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="\\172.16.16.20\org" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="KadrService.asmx" publishTime="12/27/2011 10:19:58" />
+    <file relUrl="bin/UGTUKadrService.dll" publishTime="12/11/2012 11:33:42" />
+    <file relUrl="bin/UGTUKadrService.pdb" publishTime="12/11/2012 11:33:41" />
+  </publishProfile>
+</publishData>
